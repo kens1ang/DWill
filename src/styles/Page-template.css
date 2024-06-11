@@ -1,0 +1,154 @@
+/* code written by group */
+
+.screen {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100vw;
+  gap: 300px;
+}
+.sidebar {
+  height: 100%;
+  width: 200px;
+  background-color: #21212c;
+  position: fixed;
+  transition: width 0.3s ease;
+}
+
+.benefactor-address {
+  width: 35vw;
+  padding: 5px;
+  border:none;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+
+.sidebar.closed {
+  width: 4rem;
+  margin-right: 20px;
+}
+
+.sidebar.open{
+  margin-right: 20px;
+}
+
+img.logo.open {
+  display: flex;
+  height: 2.75rem;
+  width: auto;
+  align-items: center;
+}
+
+
+img.logo.closed{
+  display: flex;
+  height: 2.70rem;
+  width: auto;
+  align-items: center;
+}
+
+
+.icon {
+  color: 'white';
+  position: 'absolute';
+  left: '90%';
+  top: '6px';
+  font-size: '20px';
+  height: '40px';
+  width: '40px';
+  text-align: 'center';
+}
+
+.sidebar ul {
+  padding: 0 0 0 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  padding: 0.5rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+
+.sidebar ul li a, .sidebar ul li div {
+  color:#d9d9d9;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+
+.sidebar ul li a:hover, .sidebar ul li .sidebar-toggle:hover, .sidebar .wallet .icon:hover{
+  background-color: #645c82;
+}
+
+
+.sidebar ul li a .icon {
+  height: 30px;
+  min-width: 30px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+}
+
+div .wallet .icon {
+  height: 30px;
+  min-width: 30px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+  padding: 0rem;
+  margin: 0;
+}
+
+div .wallet div .icon {
+  padding: 0.6rem;
+  height: 50px;
+  min-width: 100%;
+  cursor: pointer;
+}
+  
+  
+.sidebar ul li .sidebar-toggle .icon {
+  height: 30px;
+  min-width: 30px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+}
+
+
+.page-container {
+  /* flex-grow: 1; */
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  /* width: 75vw; */
+  width: 100%;
+  margin-left: 220px;
+  margin-right: 20px;
+}
+
+.page-content {
+  background-color: #21212c;
+  border-radius: 15px;
+  padding: 20px;
+  height: 100vh;
+}
+
+.wallet {
+  margin-bottom: 1rem;
+  padding: 0.6rem;
+  justify-content: center;
+  align-items: center;
+}
+

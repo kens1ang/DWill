@@ -1,0 +1,37 @@
+/* code written by group */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #e1e1e1;
+  background: black;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #21212C;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #968BC2;
+  border-radius: 10px;
+}

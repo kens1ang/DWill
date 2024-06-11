@@ -1,0 +1,767 @@
+[
+  {
+    "type": "constructor",
+    "name": "",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "BenefactorIsAlive",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "string",
+        "name": "aliveStatus",
+        "indexed": false,
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "BenefactorIsDead",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "string",
+        "name": "deadStatus",
+        "indexed": false,
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "BenefactorKeyAdded",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "string",
+        "name": "key",
+        "indexed": false,
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "BenefactorsData",
+    "inputs": [
+      {
+        "type": "bool",
+        "name": "switchStatus",
+        "indexed": false,
+        "internalType": "bool"
+      },
+      {
+        "type": "address[]",
+        "name": "beneficiaries",
+        "indexed": false,
+        "internalType": "address[]"
+      },
+      {
+        "type": "uint256",
+        "name": "remainingTime",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "type": "bool",
+        "name": "isAlive",
+        "indexed": false,
+        "internalType": "bool"
+      },
+      {
+        "type": "string",
+        "name": "publicKey",
+        "indexed": false,
+        "internalType": "string"
+      },
+      {
+        "type": "string[]",
+        "name": "allIpfsCIDs",
+        "indexed": false,
+        "internalType": "string[]"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "BeneficiariesData",
+    "inputs": [
+      {
+        "type": "bool",
+        "name": "switchStatus",
+        "indexed": false,
+        "internalType": "bool"
+      },
+      {
+        "type": "uint256",
+        "name": "remainingTime",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "type": "bool",
+        "name": "isAlive",
+        "indexed": false,
+        "internalType": "bool"
+      },
+      {
+        "type": "string",
+        "name": "publicKey",
+        "indexed": false,
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "BeneficiaryAdded",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "beneficiary",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "BeneficiaryKeyAdded",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "beneficiary",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "string",
+        "name": "key",
+        "indexed": false,
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "BeneficiaryRemoved",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "beneficiary",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "DeadMansSwitchDisabled",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "caller",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "uint256",
+        "name": "responseTime",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "DeadMansSwitchEnabled",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "beneficiary",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "uint256",
+        "name": "countdownDuration",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "IpfsCIDAdded",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "beneficiary",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "string",
+        "name": "ipfsCID",
+        "indexed": false,
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "IpfsCIDRemoved",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "beneficiary",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "string",
+        "name": "ipfsCID",
+        "indexed": false,
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "RemainingCountdownInfo",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "uint256",
+        "name": "countdownDuration",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "responseTime",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "currentTime",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "type": "uint256",
+        "name": "lastBenefactorResponseTime",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "SwitchAlreadyOff",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "caller",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "SwitchAlreadyOn",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "benefactor",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "caller",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "function",
+    "name": "addBenefactorPublicKey",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      },
+      {
+        "type": "string",
+        "name": "_key",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "addBeneficiaries",
+    "inputs": [
+      {
+        "type": "address[]",
+        "name": "_beneficiaries",
+        "internalType": "address[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "addBeneficiaryPublicKey",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "_beneficiary",
+        "internalType": "address"
+      },
+      {
+        "type": "string",
+        "name": "_key",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "addIpfsCIDs",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_beneficiary",
+        "internalType": "address"
+      },
+      {
+        "type": "string[]",
+        "name": "_ipfsCIDs",
+        "internalType": "string[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "checkAliveStatus",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "bool",
+        "name": "",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "enableSwitch",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getBenefactorData",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "bool",
+        "name": "switchStatus",
+        "internalType": "bool"
+      },
+      {
+        "type": "address[]",
+        "name": "beneficiaries",
+        "internalType": "address[]"
+      },
+      {
+        "type": "uint256",
+        "name": "remainingTime",
+        "internalType": "uint256"
+      },
+      {
+        "type": "bool",
+        "name": "isAlive",
+        "internalType": "bool"
+      },
+      {
+        "type": "string",
+        "name": "publicKey",
+        "internalType": "string"
+      },
+      {
+        "type": "string[]",
+        "name": "allIpfsCIDs",
+        "internalType": "string[]"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getBenefactorPublicKey",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "string",
+        "name": "",
+        "internalType": "string"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getBeneficiaryData",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "_beneficiary",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "bool",
+        "name": "switchStatus",
+        "internalType": "bool"
+      },
+      {
+        "type": "uint256",
+        "name": "remainingTime",
+        "internalType": "uint256"
+      },
+      {
+        "type": "bool",
+        "name": "isAlive",
+        "internalType": "bool"
+      },
+      {
+        "type": "string",
+        "name": "publicKey",
+        "internalType": "string"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getBeneficiaryPublicKey",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "_beneficiary",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "string",
+        "name": "",
+        "internalType": "string"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getCIDs",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "_beneficiary",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "string[]",
+        "name": "",
+        "internalType": "string[]"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getRemainingCountdownTime",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getSwitchStatus",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "bool",
+        "name": "",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "isBeneficiary",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      },
+      {
+        "type": "address",
+        "name": "_address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "bool",
+        "name": "",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "removeBenefactor",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_benefactor",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "removeBeneficiary",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_beneficiary",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "removeIpfsCID",
+    "inputs": [
+      {
+        "type": "address",
+        "name": "_beneficiary",
+        "internalType": "address"
+      },
+      {
+        "type": "string",
+        "name": "_ipfsCID",
+        "internalType": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "respondToSwitch",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setBenefactor",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  }
+]

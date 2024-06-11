@@ -1,0 +1,79 @@
+/* code written by the group */
+
+.icon {
+    height:40px;
+    width: 40px;
+}
+
+form {
+    width: 100%;
+    overflow: hidden;   
+}
+  
+  span {
+    display: block;
+    overflow: hidden;
+}
+
+
+.inner_container {
+    display: flex;
+    width: 90%;
+    height: 300px;
+    background-color: #12121E;
+    border-radius: 5px;
+    margin: 0 20px 0 20px;
+    padding: 30px 20px 30px 20px ;
+    color: #74749E;
+    text-align: center;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.text__container {
+    cursor: pointer;
+    margin: 30px;
+}
+
+.newBtn {
+    width: 150px;
+    height: 40px;
+    background-color: #645C82;
+    border-radius: 9px;
+    border-color: none;
+    align-self: center;
+    color: white;
+    font-weight: 600;
+    margin: 20px;
+    transition: width 0.3s ease;
+}
+
+.newBtn:hover {
+    background-color: #8d7fc0;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+.fileName {
+    margin-left: 30px;
+}
+
+#reject {
+    margin-left: 170px;
+}
+
+.uploaded_file__container {
+    padding: 10px;
+    display: flex;
+    size: 10%;
+    width: 400px;
+    background-color: #21212C;
+    border-radius: 5px;
+    color: #74749E;
+    align-items: center;
+    justify-content: left;
+}   

@@ -1,0 +1,283 @@
+/* code written by group */
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  align-items: center;
+}
+
+.title-container .right-content {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.title-container .beneficiary-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title-container button {
+  background-color: #db6d6d;
+  color: #d9d9d9;
+  border-radius: 8px;
+  border: none;
+  padding: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: medium;
+  width: max-content;
+  height: max-content;
+  text-wrap: nowrap;
+}
+
+.title-container button:hover {
+  background-color: #b25959;
+  cursor: pointer;
+}
+
+.title-container .beneficiary-right input {
+  width: max-content;
+  height: max-content;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #d9d9d9;
+  border-color: #d9d9d9;
+}
+
+/*button {
+  background-color: #706ddb;
+  position: relative;
+  color: #d9d9d9;
+  border-radius: 12px;
+  border: none;
+  padding: 0.85rem;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: large;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #504d9a;
+}
+*/
+
+button {
+  width: 150px;
+  height: 40px;
+  border: none;
+  background-color: #645C82;
+  border-radius: 9px;
+  border-color: none;
+  align-self: center;
+  color: white;
+  font-weight: 600;
+  margin: 20px;
+  transition: width 0.3s ease;
+}
+
+button:hover {
+  background-color: #8d7fc0;
+  cursor: pointer;
+}
+
+.assignment-container {
+  display: block;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assignment {
+  display: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  max-width: 100%;
+  max-height: 500px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); /* Adjusted grid-template-columns */
+  /* border: 1px solid white; */
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+
+/* Additional CSS rules for grid items */
+.assignment > * {
+  width: max-content;
+  padding: 5px;
+}
+
+/* Adjust the grid columns based on viewport width */
+@media screen and (max-width: 1200px) {
+  .assignment {
+    grid-template-columns: repeat(auto-fill, minmax(170px, calc(75vw / 3)));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .assignment {
+    grid-template-columns: repeat(auto-fill, minmax(170px, calc(75vw / 2)));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .assignment {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  }
+}
+
+
+
+.assign-img {
+  height: 100%;
+  width: 40%;
+}
+
+.ben-img {
+  justify-content: right;
+  display: block;
+  margin: auto;
+  width: 100px;
+  align-items: center;
+}
+
+
+.input-container {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.assign-remove{
+  width: 40px;
+  padding: 5px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.input-data{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  height: 30px;
+  gap: 5px;
+}
+
+.assign-input {
+  max-width: 160px;
+  padding: 5px;
+  border: none;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+}
+
+.assign-button{
+  border-radius: 10px;
+  width: auto;
+}
+
+/*.buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+*/
+
+
+.input-priv-key {
+  width: 300px;
+  padding: 5px;
+  margin-top: 10px; 
+  border: none;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+}
+
+.content{
+display: flex;
+flex-direction: column;
+gap: 10px;
+align-items: left
+}
+
+
+.image-container {
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+.image-container img {
+max-width: 100%;
+height: auto;
+}
+
+.dash__header {
+display: flex;
+justify-content: space-between;
+}
+
+.dash__header:last-child {
+margin-left: auto;
+}
+
+.files__display__container {
+max-height: 400px;
+overflow: auto;
+border-radius: 10px;
+}
+
+.files__display__box {
+display: flex;
+justify-content: left;
+align-items: center;
+background-color: #12121E;
+color: #74749E;
+font-weight: 500;
+height: 60px;
+border-radius: 5px;
+padding: 15px;
+margin: 5px;
+text-decoration: none;
+}
+
+.file__icon {
+padding: 20px;  
+}
+
+.chevron__icon, .file__checkbox {
+margin-left: auto;  
+}
+
+.file__checkbox input[type="checkbox"] {
+/* Hide the default checkbox */
+appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+/* Set custom dimensions */
+width: 20px;
+height: 20px;
+/* Add custom styles */
+border: 2px solid #968BC2;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.file__checkbox input[type="checkbox"]:checked {
+/* Change the background color when checked */
+background-color: #968BC2;
+border-color: #968BC2;
+}
